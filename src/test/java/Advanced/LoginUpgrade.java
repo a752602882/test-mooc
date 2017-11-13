@@ -1,24 +1,33 @@
 package Advanced;
 
+import Unit.BaseDriver;
 import Unit.ProUnit;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import Unit.TestngListenerShotScreen;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.Thread.sleep;
 
-public class LoginUpgrade {
+@Listeners({TestngListenerShotScreen.class})
+public class LoginUpgrade  extends BaseDriver {
 
     private String url="http://www.imooc.com/";
-    private WebDriver driver;
+
+    public LoginUpgrade(String browser) {
+        super(browser);
+    }
 
 
     @DataProvider(name = "user")
@@ -29,10 +38,10 @@ public class LoginUpgrade {
         };
     }
 
-    @BeforeClass
+    @Test
     public void  init() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","D:\\Program Files\\selenium_driver\\chromedriver.exe");
-        driver =new ChromeDriver();
+/*        System.setProperty("webdriver.chrome.driver","D:\\Program Files\\selenium_driver\\chromedriver.exe");
+        driver =new ChromeDriver();*/
         driver.get(url);
         driver.manage().window().maximize();
 
@@ -49,8 +58,8 @@ public class LoginUpgrade {
      *   ( 3) 重复出现的方法
      * @throws InterruptedException
      */
-     @Test(dataProvider ="user")
-     public  void login(String equal_name_str,String email_str,String password_str) throws InterruptedException {
+     @Test(dataProvider ="user",dependsOnMethods = {"init"})
+     public  void login(String equal_name_str,String email_str,String password_str) throws InterruptedException, IOException {
 
 /*
         String login_btn ="js-signin-btn";
@@ -103,6 +112,7 @@ public class LoginUpgrade {
         sleep(2000);
         String name = find_Element(driver,user_method("name_btn")).getText();
         Assert.assertEquals(name,equal_name_str);
+        //sheetScreen();
         driver.close();
 
     }
@@ -139,4 +149,7 @@ public class LoginUpgrade {
 
         return  driver.findElement(by);
     }
+
+
+
 }
