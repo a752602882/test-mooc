@@ -6,7 +6,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SelectDriver {
 
-    WebDriver driver;
+    public WebDriver driver;
     public WebDriver driverName(String brower){
         if (brower.equalsIgnoreCase("firefox")){
             System.setProperty("webdriver.firefox.bin","D:\\Program Files\\selenium_driver\\geckodriver.exe");

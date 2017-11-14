@@ -6,6 +6,8 @@ import org.testng.TestListenerAdapter;
 
 import java.io.IOException;
 
+
+
 public class TestngListenerShotScreen extends TestListenerAdapter {
     @Override
     public void onTestSuccess(ITestResult iTestResult) {

@@ -1,6 +1,7 @@
 package Advanced;
 
 import Unit.BaseDriver;
+import Unit.GetByLocator;
 import Unit.ProUnit;
 import Unit.TestngListenerShotScreen;
 import org.apache.commons.io.FileUtils;
@@ -78,7 +79,7 @@ public class LoginUpgrade  extends BaseDriver {
 
 
 
-         find_Element(driver,user_method("login_btn")).click();
+         find_Element(driver, GetByLocator.getByLocator("login_btn")).click();
          //sleep(2000);
 
 
@@ -92,8 +93,8 @@ public class LoginUpgrade  extends BaseDriver {
 
 
         //检验输入框状态
-         WebElement email=find_Element(driver,user_method("email_btn"));
-         WebElement password=find_Element(driver,user_method("password_btn"));
+         WebElement email=find_Element(driver, GetByLocator.getByLocator("email_btn"));
+         WebElement password=find_Element(driver, GetByLocator.getByLocator("password_btn"));
          //这两句感觉是废话，如果是false会报错吗？需要检验吗？   ----->不需要
          System.out.println(email.isDisplayed());
          System.out.println(password.isDisplayed());
@@ -102,48 +103,22 @@ public class LoginUpgrade  extends BaseDriver {
 
         email.sendKeys(email_str);
         password.sendKeys(password_str);
-        find_Element(driver,user_method("red_btn")).click();
+        find_Element(driver, GetByLocator.getByLocator("red_btn")).click();
 
         sleep(2000);
-        WebElement  info = find_Element(driver,user_method("header_avator_btn"));
+        WebElement  info = find_Element(driver, GetByLocator.getByLocator("header_avator_btn"));
         Actions actions = new Actions(driver);
         actions.moveToElement(info).perform();
 
         sleep(2000);
-        String name = find_Element(driver,user_method("name_btn")).getText();
+        String name = find_Element(driver, GetByLocator.getByLocator("name_btn")).getText();
         Assert.assertEquals(name,equal_name_str);
         //sheetScreen();
         driver.close();
 
     }
 
-    private  By  user_method(String key){
 
-        ProUnit  prop = new ProUnit("element.properties");
-        String tag = prop.getPro(key).split(">")[0];
-        String value = prop.getPro(key).split(">")[1];
-
-
-        if (tag.equals("name")){
-            return  By.name(value);
-        }else if(tag.equals("id")){
-            return  By.id(value);
-        }else if(tag.equals("className")){
-            return  By.className(value);
-        }else if(tag.equals("xpath")){
-            return  By.xpath(value);
-        }else if(tag.equals("linkText")){
-            return  By.linkText(value);
-        }else if(tag.equals("partialLinkText")){
-            return  By.partialLinkText(value);
-        }else if(tag.equals("tagName")){
-            return  By.tagName(value);
-        }else if(tag.equals("cssSelector")){
-            return  By.cssSelector(value);
-        } else{
-            return null;
-        }
-    }
 
     private WebElement find_Element(WebDriver driver, By by){
 
