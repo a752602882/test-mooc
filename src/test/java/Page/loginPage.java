@@ -17,7 +17,7 @@ public class loginPage extends  BasePage{
      * @return
      */
     public WebElement getUserElement(){
-        return  element(GetByLocator.getByLocator("username"));
+        return  element(GetByLocator.getByLocator("email_btn"));
     }
 
     /**
@@ -25,13 +25,13 @@ public class loginPage extends  BasePage{
      * @return
      */
     public WebElement getPasswordElement(){
-        return  element(GetByLocator.getByLocator("password"));
+        return  element(GetByLocator.getByLocator("password_btn"));
     }
     /**
      * 获取登录按钮Element
      * @return
      */
     public WebElement getLoginButtonElement(){
-        return  element(GetByLocator.getByLocator("login_btn"));
+        return  element(GetByLocator.getByLocator("red_btn"));
     }
 }

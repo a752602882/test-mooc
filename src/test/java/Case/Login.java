@@ -19,7 +19,7 @@ public class Login extends  CaseBase{
     @Test
     public  void getLoginHome() throws InterruptedException {
         driver.get("http://www.imooc.com");
-        driver.findElement(By.id("js-js-signin-btn")).click();
+        driver.findElement(By.id("js-signin-btn")).click();
         sleep(5000);
     }
     @Test(dependsOnMethods = {"getLoginHome"})
