@@ -17,5 +17,6 @@ out
 
 #不要过滤
 
-!lib
+!lib/saxon-8.7.jar
+
 
