@@ -8,6 +8,37 @@
     <artifactId>lili</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+<!--
+   定义的编译版本java 1.7,maven 2.3.2
+   在变异的时候顺便执行testng.xml这个文件
+ -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXMLfile>testng.xml</suiteXMLfile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+ <!--   这是引用源-->
     <pluginRepositories>
         <pluginRepository>
             <id>maven-net-cn</id>
@@ -20,7 +51,6 @@
                 <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
-
         <pluginRepository>
             <id>nexus-aliyun</id>
             <name>Nexus aliyun</name>
@@ -57,6 +87,22 @@
             <artifactId>testng</artifactId>
             <version>6.10</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations-java5</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.5</version>
         </dependency>
     </dependencies>
 </project>

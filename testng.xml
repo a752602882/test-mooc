@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Ali-best" parallel="true" thread-count="2">
+    <parameter name="username" value="752602882@qq.com"/>
+    <parameter name="password" value="5423110."/>
+    <listeners>
+            <listener class-name="Unit.TestngListenerShotScreen" />
+    </listeners>
+    <test name="test1" verbose="2" preserve-order="true" >
+
+        <classes>
+            <class name="Case.Login"/>
+        </classes>
+    </test>
+
+<!--    <test name="test2" verbose="2" preserve-order="true" >
+        <classes>
+            <class name="Case.testCourseListPage"/>
+        </classes>
+    </test>-->
+</suite>

@@ -28,13 +28,40 @@ public class BasePage
       return element;
     }
 
+    /**
+     * 定位子节点
+     */
+    public WebElement elementNode(By by,By byNode){
+        WebElement el = element(by);
+        return el.findElement(byNode);
 
+    }
+
+    /**
+     *   移动鼠标指针
+     */
+    public  void action(WebElement element){
+      driver.action(element);
+    }
+
+    /**
+     * 点击
+     */
     public  void click(WebElement element){
-       if (element!=null) {
-           element.click();
-       }else {
-           System.out.println("元素不存在");
-       }
+    if (element!=null) {
+        element.click();
+    }else {
+        System.out.println("元素不存在");
+    }
+    }
+
+    public  String getText(WebElement element){
+        if (element!=null) {
+           return element.getText();
+        }else {
+            System.out.println("元素不存在");
+        }
+        return  null;
     }
 
     public void sendKey(WebElement element,String value){

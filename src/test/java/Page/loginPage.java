@@ -20,6 +20,7 @@ public class loginPage extends  BasePage{
         return  element(GetByLocator.getByLocator("email_btn"));
     }
 
+
     /**
      * 获取密码Element
      * @return

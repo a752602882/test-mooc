@@ -45,6 +45,9 @@ public class ProUnit {
            return properties.getProperty(key);
     }
 
+    public void WritePro(String name, String value) {
+          properties.setProperty(name,value);
+    }
 }
 
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="3" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default Suite" duration-ms="21242" started-at="2017-11-22T09:10:36Z" finished-at="2017-11-22T09:10:57Z">
+    <groups>
+    </groups>
+    <test name="lili" duration-ms="21242" started-at="2017-11-22T09:10:36Z" finished-at="2017-11-22T09:10:57Z">
+      <class name="Case.Login">
+        <test-method status="PASS" signature="login()[pri:0, instance:Case.Login@3246fb96]" name="login" duration-ms="1374" started-at="2017-11-22T17:10:36Z" finished-at="2017-11-22T17:10:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="buyNow()[pri:0, instance:Case.Login@3246fb96]" name="buyNow" duration-ms="19835" started-at="2017-11-22T17:10:38Z" depends-on-methods="Case.Login.login" finished-at="2017-11-22T17:10:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- buyNow -->
+      </class> <!-- Case.Login -->
+    </test> <!-- lili -->
+  </suite> <!-- Default Suite -->
+</testng-results>
